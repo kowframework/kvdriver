@@ -28,13 +28,13 @@ package body KOW_View_Tools is
 		if Ada.Directories.Exists( "kvdriver.cfg" ) then
 			declare
 				use KOW_Config;
-				Cfg : Config_File :=
-					New_Config_File(
-						N			=> "kvdriver.cfg",
-						Is_Complete_Path	=> True
-					);
+				Cfg : Config_File_Type := New_Config_File(
+										N			=> "kvdriver.cfg",
+										Is_Complete_Path	=> True
+								);
+				Ite : Config_Item_Type := Item( Cfg, "project_name" );
 			begin
-				return Element( Cfg, "project_name" );
+				return Default_Value( Ite );
 			end;
 		else
 			return Ada.Command_Line.Argument( 2 );
