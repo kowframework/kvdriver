@@ -16,7 +16,6 @@ with KOW_Lib.String_Util;
 with KOW_Lib.UString_Hashed_Maps;
 with KOW_Lib.UString_Vectors;
 
-with KOW_View_Tools.Entities;
 
 ---------
 -- AWS --
@@ -56,7 +55,6 @@ package body KOW_View_Tools.Setup is
 
 		Applications_Tag	: Templates_Parser.Tag;
 		Spawn_Tasks_Tag		: Templates_Parser.Tag;
-		Entities_Tag		: Templates_Parser.Tag;
 
 		procedure Iterator( C : in KOW_Lib.UString_Hashed_Maps.Cursor ) is
 			Complete_Key	: Unbounded_String := KOW_Lib.UString_Hashed_Maps.Key( C );
@@ -74,15 +72,6 @@ package body KOW_View_Tools.Setup is
 					KOW_Lib.UString_Vectors.Delete_Last( Element_Values );
 					Complete_Key := KOW_Lib.String_Util.Implode( '.', Element_Values );
 					Applications_Tag := Applications_Tag & Complete_Key;
-
-
-					if KOW_View_Tools.Entities.Process_Entities( Complete_Key ) then
-						Entities_Tag := Entities_Tag & Complete_Key;
-					end if;
-
-					if KOW_View_Tools.Entities.Spawn_Tasks( Complete_Key ) then
-						Spawn_Tasks_Tag := Spawn_Tasks_Tag & Complete_Key;
-					end if;
 				end if;
 			end if;
 		end Iterator;
@@ -98,7 +87,6 @@ package body KOW_View_Tools.Setup is
 
 		Templates_Parser.Insert( Parameters, Templates_Parser.Assoc( "applications", Applications_Tag ) );
 		Templates_Parser.Insert( Parameters, Templates_Parser.Assoc( "application_tasks", Spawn_Tasks_Tag ) );
-		Templates_Parser.Insert( Parameters, Templates_Parser.Assoc( "entities", Entities_Tag ) );
 
 
 		declare
