@@ -8,4 +8,12 @@ project="kvdriver"
 include_files=src/*
 
 
+
 set_configuration KVDRIVER_EXTERNALLY_BUILT "false"
+
+cp -r ./share "$work_path/share"
+
+
+cp ./src-in/kow_view_tools.ads.in src/kow_view_tools.ads
+
+replace_in_file src/kow_view_tools.ads %prefix% "$prefix"
