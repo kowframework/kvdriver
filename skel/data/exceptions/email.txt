@@ -1,0 +1,43 @@
+An exception have just been raised at @_host_@.
+
+
+=======================
+= Request Information =
+=======================
+
+
+Exception Name:  @_exception_name_@
+Exception Messsage: @_exception_message_@
+
+Exception Information:
+@_exception_information_@
+
+
+Host: @_host_@
+URI: @_uri_@
+Parameters: @_parameters_@
+
+
+
+User Agent : @_user_agent_@
+Referer: @_referer_@
+Peername: @_peername_@
+
+
+
+=====================
+= User Information: =
+=====================
+
+
+Identity: @_identity_@
+
+Status: @_account_status_@
+Status Message: @_account_status_message_@
+
+First Name: @_first_name_@
+Last Name:  @_last_name_@
+Gender: @_gender_@
+Nickname: @_nickname_@
+
+Primary Email @_primary_email_@

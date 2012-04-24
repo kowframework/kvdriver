@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# 
+# Local configuration file for KOW Lib
+
+
+
+project="kvdriver"
+include_files=src/*
+
+
+set_configuration KVDRIVER_EXTERNALLY_BUILT "false"
