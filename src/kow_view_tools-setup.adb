@@ -41,8 +41,8 @@ package body KOW_View_Tools.Setup is
 
 		Project	: constant String := Ada.Characters.Handling.To_Lower( Project_Name );
 
-		Template_File : constant String := "src-in" / Project & "-setup.adb.in";
-		Output_File: constant String := "src" / Project & "-setup.adb";
+		Template_File : constant String := "src-in" / Project & "_setup.adb.in";
+		Output_File: constant String := "src" / Project & "_setup.adb";
 
 		procedure Message( Str : in String; Level : in Positive := 1 ) is
 		begin

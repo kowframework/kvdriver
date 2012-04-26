@@ -34,21 +34,8 @@ pragma Elaborate( KOW_Sec.Authorization_Criterias);
 
 
 @@TABLE@@
-with @_entities_@.Entities_Setup;
+@_components_with_@
 @@END_TABLE@@
-
-
-
-@@TABLE@@
-with @_applications_@.Load;
-@@END_TABLE@@
-
-
-
-@@TABLE@@
-with @_application_tasks_@.Spawn_Tasks;
-@@END_TABLE@@
-
 
 
 
@@ -146,20 +133,8 @@ begin
 
 
 	@@TABLE@@
-	@_entities_@.Entities_Setup;
+	@_components_setup_@
 	@@END_TABLE@@
-
-	@@TABLE@@
-	@_applications_@.Load;
-	@@END_TABLE@@
-
-
-	if Spawn_Tasks then
-		null;
-		@@TABLE@@
-		@_application_tasks_@.Spawn_Tasks;
-		@@END_TABLE@@
-	end if;
 
 exception
 	when E : Others =>
