@@ -22,7 +22,7 @@ package KOW_View_Tools.Driver is
 			info,
 			init,
 			install_tool,
-			newapp,
+			newcomponent,
 			setup,
 			version
 		);
@@ -42,7 +42,7 @@ private
 						Info		=> KOW_View_Tools.Info.New_Command'Access,
 						Init		=> KOW_View_Tools.Init.New_Command'Access,
 						Install_Tool	=> KOW_View_Tools.Install_Tool.New_Command'Access,
-						newapp		=> KOW_View_Tools.NewApp.New_Command'Access,
+						newcomponent		=> KOW_View_Tools.NewApp.New_Command'Access,
 						Setup		=> KOW_View_Tools.Setup.New_Command'Access,
 						Version		=> KOW_View_Tools.Version.New_Command'Access
 					);
