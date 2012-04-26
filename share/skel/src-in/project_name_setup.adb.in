@@ -33,9 +33,7 @@ pragma Elaborate( KOW_Sec.Authorization_Criterias);
 
 
 
-@@TABLE@@
 @_components_with_@
-@@END_TABLE@@
 
 
 
@@ -132,9 +130,7 @@ begin
 	-------------------
 
 
-	@@TABLE@@
 	@_components_setup_@
-	@@END_TABLE@@
 
 exception
 	when E : Others =>
