@@ -5,8 +5,8 @@ with "kowlib";
 with "kowconfig";
 with "kowent";
 with "kowview";
-
-
+with "kowsec";
+with "kowsec-entities";
 
 with "apq";
 with "apqprovider";
