@@ -11,7 +11,11 @@ include_files=src/*
 
 set_configuration KVDRIVER_EXTERNALLY_BUILT "false"
 
-cp -r ./share "$work_path/share"
+
+share="$work_path/share/kvdriver"
+
+mkdir -p "$share"
+cp -r ./share/* "$share"
 
 
 cp ./src-in/kow_view_tools.ads.in src/kow_view_tools.ads
