@@ -67,7 +67,7 @@ private
 						Info		=> KOW_View_Tools.Info.New_Command'Access,
 						Init		=> KOW_View_Tools.Init.New_Command'Access,
 						Install_Tool	=> KOW_View_Tools.Install_Tool.New_Command'Access,
-						newcomponent		=> KOW_View_Tools.NewComponent.New_Command'Access,
+						newcomponent	=> KOW_View_Tools.NewComponent.New_Command'Access,
 						Setup		=> KOW_View_Tools.Setup.New_Command'Access,
 						Version		=> KOW_View_Tools.Version.New_Command'Access
 					);
