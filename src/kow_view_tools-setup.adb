@@ -99,6 +99,9 @@ package body KOW_View_Tools.Setup is
 		Message( "preparing the setup file" );
 		TP.Insert( Params, TP.Assoc( "components_with", With_Buffer ) );
 		TP.Insert( Params, TP.Assoc( "components_setup", Setup_Buffer ) );
+		TP.Insert( Params, TP.Assoc( "project_name", Project_Name ) );
+		TP.Insert( Params, TP.Assoc( "upper_project_name", Ada.Characters.Handling.To_Upper( Project ) ) );
+		TP.Insert( Params, TP.Assoc( "lower_project_name", Project ) );
 
 
 		if Ada.Directories.Exists( Output_File ) then
