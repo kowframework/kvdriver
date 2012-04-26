@@ -19,5 +19,10 @@ cp -r ./share/* "$share"
 
 
 cp ./src-in/kow_view_tools.ads.in src/kow_view_tools.ads
-
 replace_in_file src/kow_view_tools.ads %prefix% "$prefix"
+
+
+
+
+cp ./src-in/kow_view_tools-version.ads.in src/kow_view_tools-version.ads
+replace_in_file src/kow_view_tools-version.ads %version% "$version"

@@ -4,7 +4,7 @@
 --                                                                          --
 --                              KOW Framework                               --
 --                                                                          --
---                                 B o d y                                  --
+--                                 H e a d                                  --
 --                                                                          --
 --               Copyright (C) 2007-2011, KOW Framework Project             --
 --                                                                          --
@@ -24,28 +24,42 @@
 pragma License (GPL);
 
 
-with Ada.Text_IO;
+
+with Ada.Strings;
+with Ada.Strings.Fixed;
 
 
+with KOW_View_Tools.Commands;
 
 
+-------------------------------------------
+-- Implementation of the Version command --
+-------------------------------------------
 
-package body KOW_View_Tools.Driver is
-
-
-	procedure Run_Command( Command : in Available_Commands ) is
-		Comm : KOW_View_Tools.Commands.Command_Type'Class := Get( Command );
-	begin
-		KOW_View_Tools.Commands.Run( Comm );
-	end Run_Command;
+package KOW_View_Tools.Version is
 
 
-	function Get( Command : in Available_Commands ) return KOW_View_Tools.Commands.Command_type'Class is
-	begin
-		if Command_Constructors( Command ) = NULL then
-			raise PROGRAM_ERROR with "command is not registered..";
-		end if;
+	Version : constant String := Ada.Strings.Fixed.Trim( "%version%", Ada.Strings.Both );
 
-		return Command_Constructors( Command ).all;
-	end Get;
-end KOW_View_Tools.Driver;
+	type Command_Type is new KOW_View_Tools.Commands.Command_Type with null record;
+
+
+	function New_Command return KOW_View_Tools.Commands.Command_Type'Class;
+	-- constructor for our command
+
+	overriding
+	procedure Run( Command : in out Command_Type );
+	-- when no parameter is given, display the version message
+	
+
+
+	overriding
+	procedure Help( Command : in out Command_Type );
+	-- show detailed information about this command
+	
+
+
+	overriding
+	procedure Describe( Command : in out Command_Type );
+	-- show a short description about this command;
+end KOW_View_Tools.Version;

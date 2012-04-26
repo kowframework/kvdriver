@@ -194,7 +194,7 @@ replace_in_file(){
 	filename="$1"
 	from="$2"
 	to=$(echo "$3" | sed -e 's/$/\\&/' | sed -e 's/\//\\&/g' );
-	sed -i -e "s/$from/$to /" "$filename"
+	sed -i "" -e "s/$from/$to /" "$filename"
 }
 
 
