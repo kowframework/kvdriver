@@ -194,7 +194,7 @@ replace_in_file(){
 	filename="$1"
 	from="$2"
 	to=$(echo "$3" | sed -e 's/$/\\&/' | sed -e 's/\//\\&/g' );
-	sed -i "" -e "s/$from/$to /" "$filename"
+	sed -i -e "s/$from/$to /" "$filename"
 }
 
 
@@ -242,18 +242,18 @@ sedfy_gpr_list(){
 build_libraries(){
 	if [[ "$enable_static" = "true" ]]
 	then
-		build_library static
+		build_project static
 	fi
 
 	if [[ "$enable_relocatable" = "true" ]]
 	then
-		build_library relocatable
+		build_project relocatable
 	fi
 }
 
-build_library(){
+build_project(){
 	kind=$1;
-	echo "Building $kind library";
+	echo "Building $kind binary";
 	export LIBRARY_TYPE=$kind
 	$GPRBUILD -P$work_path/lib/gnat/$project.gpr -d -q -j$processors --create-missing-dirs $gprbuild_params
 }
