@@ -2,6 +2,7 @@ things that need to be done ASAP:
 
 
 * template for the setup procedure
+	=> try to put the reusable code in a central place
 * newcomponent instead of newapp
 * update the core application skel to use the dojo 1.7 framework
 * figure out a way to manage 3rd parties command line tools and components
