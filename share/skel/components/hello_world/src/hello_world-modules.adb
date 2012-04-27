@@ -1,6 +1,7 @@
 
 
 
+with KOW_View;
 with KOW_View.Locales;
 with KOW_View.Modules;
 with KOW_View.Modules.Stateful_Module_Factories;
@@ -25,7 +26,7 @@ package body Hello_World.Modules is
 	overriding
 	procedure Process_Body(
 				Module	: in out Hello_There_Module;
-				Request	: in     AWS.Status.Data;
+				Status	: in     KOW_View.Request_Status_Type;
 				Response:    out Unbounded_String
 			) is
 		use Templates_Parser;
@@ -34,19 +35,19 @@ package body Hello_World.Modules is
 
 		Incrementor.Increment( Module.Counter );
 
-		Include_Dojo_Package( Module, "dijit.TitlePane" );
-		-- you can include Dojo packages directly from the Ada code...
+		Include_amdjs_Package( Module, "dijit.TitlePane" );
+		-- you can include amdjs packages directly from the Ada code...
 		-- and they won't be include twice by the JS application...
 		
 		-- just to show you ...
-		Include_Dojo_Package( Module, "dijit.TitlePane" );
-		Include_Dojo_Package( Module, "dijit.TitlePane" );
-		Include_Dojo_Package( Module, "dijit.TitlePane" );
+		Include_amdjs_Package( Module, "dijit.TitlePane" );
+		Include_amdjs_Package( Module, "dijit.TitlePane" );
+		Include_amdjs_Package( Module, "dijit.TitlePane" );
 		-- but please don't do that :)
 
 
-		Include_Dojo_Package( Module, "dijit.Dialog" );
-		Include_Dojo_Package( Module, "dijit.form.Button" );
+		Include_amdjs_Package( Module, "dijit.Dialog" );
+		Include_amdjs_Package( Module, "dijit.form.Button" );
 
 		Include_Component_Script( Module, "information.js" );
 		Include_Component_Script( Module, "updater.js" );
@@ -62,7 +63,7 @@ package body Hello_World.Modules is
 						Template_Resource	=> "the_view",
 						Template_Extension	=> "html",
 						Parameters		=> Parameters,
-						Locale			=> KOW_View.Locales.Get_Locale( Request )
+						Locale			=> KOW_View.Locales.Get_Locale( Status.Request )
 				);
 	end Process_Body;
 
@@ -70,7 +71,7 @@ package body Hello_World.Modules is
 	overriding
 	procedure Process_Json_Request(
 				Module	: in out Hello_There_Module;
-				Request	: in     AWS.Status.Data;
+				Status	: in     KOW_View.Request_Status_Type;
 				Response:    out KOW_Lib.Json.Object_Type
 			) is
 		Object : KOW_Lib.Json.Object_Type;
@@ -82,7 +83,7 @@ package body Hello_World.Modules is
 		else
 			KOW_Lib.Json.Set( Object, "counter", "<span style=""color:red;"">" & Natural'Image( Module.Counter ) & "</span>");
 		end if;
-		KOW_Lib.Json.Set( Object, "lala", AWS.Parameters.Get( AWS.Status.Parameters( Request ), "lala" ) );
+		KOW_Lib.Json.Set( Object, "lala", AWS.Parameters.Get( AWS.Status.Parameters( Status.Request ), "lala" ) );
 
 		Response := Object;
 	end Process_Json_Request;

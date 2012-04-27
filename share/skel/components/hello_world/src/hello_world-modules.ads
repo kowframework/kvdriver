@@ -3,6 +3,7 @@
 
 
 with KOW_Lib.Json;
+with KOW_View;
 with KOW_View.Modules;
 with KOW_View.Modules.Stateful_Module_Factories;
 
@@ -24,14 +25,14 @@ package Hello_World.Modules is
 	overriding
 	procedure Process_Body(
 				Module	: in out Hello_There_Module;
-				Request	: in     AWS.Status.Data;
+				Status	: in     KOW_View.Request_Status_Type;
 				Response:    out Unbounded_String
 			);
 
 	overriding
 	procedure Process_Json_Request(
 				Module	: in out Hello_There_Module;
-				Request	: in     AWS.Status.Data;
+				Status	: in     KOW_View.Request_Status_Type;
 				Response:    out KOW_Lib.Json.Object_Type
 			);
 	-- return an object with only the "counter" attribute 

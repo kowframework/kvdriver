@@ -23,7 +23,7 @@ package body Hello_World.Services is
 	overriding
 	procedure Process_Custom_Request(
 				Service	: in out Hello_Service;
-				Request	: in     AWS.Status.Data;
+				Status	: in     KOW_View.Request_Status_Type;
 				Response:    out AWS.Response.Data
 			) is
 	begin
@@ -35,7 +35,7 @@ package body Hello_World.Services is
 	overriding
 	procedure Process_Json_Request(
 				Service	: in out Hello_Service;
-				Request	: in     AWS.Status.Data;
+				Status	: in     KOW_View.Request_Status_Type;
 				Response:    out KOW_Lib.Json.Object_Type
 			) is
 		O : KOW_Lib.Json.Object_Type;

@@ -28,7 +28,6 @@ with @_project_name_@_Setup;
 
 
 procedure @_project_name_@_Cli is
-	Conf		: constant AWS.Config.Object := AWS.Config.Get_Current;
 begin
 	-------------------
 	-- Run the Setup --

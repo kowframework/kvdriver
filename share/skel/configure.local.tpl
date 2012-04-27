@@ -10,7 +10,7 @@
 
 project="@_lower_project_name_@"
 project_type="executable"
-include_files=src/* components/*/src/*
+include_files="src/* components/*/src/*"
 
 
 

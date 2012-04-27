@@ -1,6 +1,9 @@
 -- Build file for @_project_name_@
 --
 
+with "aws";
+
+
 with "kowlib";
 with "kowconfig";
 with "kowent";

@@ -4,6 +4,7 @@
 
 
 with KOW_Lib.Json;
+with KOW_View;
 with KOW_View.Components;
 with KOW_View.Services;
 with KOW_View.Services.Singleton_Service_Cycles;
@@ -24,14 +25,14 @@ package Hello_World.Services is
 	overriding
 	procedure Process_Custom_Request(
 				Service	: in out Hello_Service;
-				Request	: in     AWS.Status.Data;
+				Status	: in     KOW_View.Request_Status_Type;
 				Response:    out AWS.Response.Data
 			);
 	
 	overriding
 	procedure Process_Json_Request(
 				Service	: in out Hello_Service;
-				Request	: in     AWS.Status.Data;
+				Status	: in     KOW_View.Request_Status_Type;
 				Response:    out KOW_Lib.Json.Object_Type
 			);
 	

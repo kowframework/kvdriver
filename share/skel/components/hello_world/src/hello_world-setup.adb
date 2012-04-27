@@ -13,11 +13,12 @@ pragma Elaborate( Hello_World.Modules );
 with KOW_View.Components.Registry;
 
 
-procedure Hello_World.Load is
+procedure Hello_World.Setup( Spawn_Tasks: Boolean ) is
 begin
 	KOW_View.Components.Registry.Register(
 			Hello_World.Components.Component'Access,
 			false
 		);
-	Ada.Text_IO.Put_Line( "Hello World loaded!" );
-end Hello_World.Load;
+	Ada.Text_IO.Put_Line( "Hello World loaded! Are tasks enabled? " & Boolean'Image( Spawn_Tasks ) );
+
+end Hello_World.Setup;
